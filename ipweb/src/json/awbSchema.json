@@ -1,0 +1,334 @@
+{
+  	"title": "A registration form",
+  	"description": "A simple form example.",
+  	"type": "object",
+  	"required": [],
+  	"properties": {
+		"bByPass": {
+	  		"type": "boolean",
+	  		"title": "bByPass",
+	  		"description": "Some description",
+	  		"help": "boolean"
+		},
+		"enOpType": {
+	  		"type": "string",
+	  		"title": "enOpType",
+	  		"enum": [
+				"OP_TYPE_AUTO",
+				"OP_TYPE_MANUAL",
+				"OP_TYPE_BUTT"
+	  		],
+                                        "help": "EN",
+	  		"description": "Some description"
+		}
+  	},"dependencies": {
+        "enOpType": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "enOpType": {
+                            "enum": [
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "enOpType": {
+                            "enum": [
+                                "OP_TYPE_AUTO"
+                            ]
+                        },
+                        "stAuto": {
+                            "type": "object",
+                            "properties": {
+                                "bEnable": {
+                                    "type": "boolean",
+                                    "title": "bEnable",
+	  								"help": "boolean",
+                                    "description": "Some description"
+                                },
+                                "u16RefColorTemp": {
+                                    "type": "integer",
+                                    "title": "u16RefColorTemp",
+                                    "minimum": 0,
+                                    "maximum": 65535,
+                                    "help": "u16",
+                                    "description": "Some description"
+                                },
+                                "as32CurvePara": {
+                                    "title": "as32CurvePara",
+                                    "type": "array",
+                                    "minItems": 6,
+                                    "description": "Some description",
+                                    "items": {
+                                        "type": "integer",
+                                        "help": "s32",
+                                        "minimum": -32768,
+                                        "maximum": 32767
+                                    }
+                                },
+                                "au16StaticWB": {
+                                    "title": "au16StaticWB",
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                        "type": "integer",
+                                        "help": "u16",
+                                        "minimum": 0,
+                                        "maximum": 65535
+                                    }
+                                },
+                                "enAlgType": {
+                                    "type": "string",
+                                    "title": "enAlgType",
+                                    "enum": [
+                                        "AWB_ALG_LOWCOST",
+                                        "AWB_ALG_ADVANCE",
+                                        "AWB_ALG_BUTT"
+                                    ]
+                                },
+                                "u8RGStrength": {
+                                    "type": "integer",
+                                    "help": "u8",
+                                    "minimum": 0,
+                                    "maximum": 255
+                                },
+                                "u8BGStrength": {
+                                    "type": "integer",
+                                    "help": "u8",
+                                    "minimum": 0,
+                                    "maximum": 255
+                                },
+                                "u16Speed": {
+                                    "type": "integer",
+                                    "help": "u16",
+                                    "minimum": 0,
+                                    "maximum": 4095
+                                },
+                                "u16ZoneSel": {
+                                    "type": "integer",
+                                    "help": "u16",
+                                    "minimum": 0,
+                                    "maximum": 255
+                                },
+                                "u16HighColorTemp": {
+                                    "type": "integer",
+                                    "help": "u16",
+                                    "minimum": 8000,
+                                    "maximum": 12000
+                                },
+                                "u16LowColorTemp": {
+                                    "type": "integer",
+                                    "help": "u16",
+                                    "minimum": 0,
+                                    "maximum": 12000
+                                },
+                                "stCTLimit": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bEnable": {
+                                            "type": "boolean",
+                                            "title": "bEnable",
+	  										"help": "boolean"
+                                        },
+                                        "enOpType": {
+                                            "type": "string",
+                                            "title": "enOpType",
+                                            "enum": [
+                                                "OP_TYPE_AUTO",
+                                                "OP_TYPE_MANUAL",
+                                                "OP_TYPE_BUTT"
+                                            ]
+                                        },
+                                        "u16HighBgLimit": {
+                                            "type": "integer",
+                                    		"help": "u16",
+                                            "minimum": 0,
+                                            "maximum": 4095
+                                        },
+                                        "u16HighRgLimit": {
+                                            "type": "integer",
+                                    		"help": "u16",
+                                            "minimum": 0,
+                                            "maximum": 4095
+                                        },
+                                        "u16LowBgLimit": {
+                                            "type": "integer",
+                                    		"help": "u16",
+                                            "minimum": 0,
+                                            "maximum": 4095
+                                        },
+                                        "u16LowRgLimit": {
+                                            "type": "integer",
+                                    		"help": "u16",
+                                            "minimum": 0,
+                                            "maximum": 4095
+                                        }
+                                    }
+                                },
+                                "bShiftLimitEn": {
+                                    "type": "boolean",
+                                    "title": "bShiftLimitEn",
+									"help": "boolean"
+                                },
+                                "u8ShiftLimit": {
+                                    "type": "integer",
+                                    "help": "u8",
+                                    "minimum": 0,
+                                    "maximum": 255
+                                },
+                                "bGainNormEn": {
+                                    "type": "boolean",
+                                    "title": "bGainNormEn",
+	  								"help": "boolean"
+                                },
+                                "stCbCrTrack": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bEnable": {
+                                            "type": "boolean",
+                                            "title": "bEnable",
+	  										"help": "boolean"
+                                        },
+                                        "au16CbMax": {
+                                            "title": "au16CbMax",
+                                            "type": "array",
+                                            "minItems": 16,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 65535
+                                            }
+                                        },
+                                        "au16CbMin": {
+                                            "title": "au16CbMin",
+                                            "type": "array",
+                                            "minItems": 16,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 65535
+                                            }
+                                        },
+                                        "au16CrMax": {
+                                            "title": "au16CrMax",
+                                            "type": "array",
+                                            "minItems": 16,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 65535
+                                            }
+                                        },
+                                        "au16CrMin": {
+                                            "title": "au16CrMin",
+                                            "type": "array",
+                                            "minItems": 16,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 65535
+                                            }
+                                        }
+
+                                    }
+                                },
+                                "stLumaHist": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bEnable": {
+                                            "type": "boolean",
+                                            "title": "bEnable",
+	  										"help": "boolean"
+                                        },
+                                        "enOpType": {
+                                            "type": "string",
+                                            "title": "enOpType",
+                                            "enum": [
+                                                "OP_TYPE_AUTO",
+                                                "OP_TYPE_MANUAL",
+                                                "OP_TYPE_BUTT"
+                                            ]
+                                        },
+                                        "au16HistWt": {
+                                            "title": "au16HistWt",
+                                            "type": "array",
+                                            "minItems": 6,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 65535
+                                            }
+                                        },
+                                        "au8HistThresh": {
+                                            "title": "au8HistThresh",
+                                            "type": "array",
+                                            "minItems": 6,
+                                            "items": {
+                                                "type": "integer",
+                                    			"help": "u16",
+                                                "minimum": 0,
+                                                "maximum": 255
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "stAuto"
+                    ]
+                },
+                {
+                    "properties": {
+                        "enOpType": {
+                            "enum": [
+                                "OP_TYPE_MANUAL"
+                            ]
+                        },
+                        "stManual": {
+						    "type": "object",
+						    "properties": {
+						    	"u16Rgain": {
+								    "type": "integer",
+                        			"help": "u16",
+								    "minimum": 0,
+								    "maximum": 4095
+								},
+								"u16Grgain": {
+								    "type": "integer",
+                        			"help": "u16",
+								    "minimum": 0,
+								    "maximum": 4095
+								},
+								"u16Gbgain": {
+								    "type": "integer",
+                        			"help": "u16",
+								    "minimum": 0,
+								    "maximum": 4095
+								},
+								"u16Bgain": {
+								    "type": "integer",
+                        			"help": "u16",
+								    "minimum": 0,
+								    "maximum": 4095
+								}
+						    }
+						}
+                    },
+                    "required": [
+                        "stManual"
+                    ]
+                }
+            ]
+        }
+    }
+}
